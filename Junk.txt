@@ -1,0 +1,43 @@
+class CheckoutProduct(models.Model):
+    checkout = models.ForeignKey(Checkout, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField()
+    price = models.FloatField()
+
+
+class Checkout(models.Model):
+    PAYMENT_CHOICES = [
+        ('cash', 'Cash'),
+        ('online', 'Online'),
+    ]
+
+    customer_name = models.CharField(max_length=255)
+    customer_address = models.TextField()
+    payment_type = models.CharField(max_length=10, choices=PAYMENT_CHOICES)
+    products = models.ManyToManyField(Product, through='CheckoutProduct')
+    total_price = models.FloatField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+json synbtax that add the product in cart 
+{
+"product_id": 1,
+"quantity": 2
+}
+
+
+
+{
+"customer_name": "saad",
+"customer_address": "Nishat colony",
+"payment_type": "online"
+}
+
+
+
+{
+"product_name": "Handfree",
+"price": 200,
+"stock": 10,
+"image": null
+}

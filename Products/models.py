@@ -7,7 +7,7 @@ class Product(models.Model):
     product_name = models.CharField(max_length=255)
     price = models.FloatField()
     stock = models.IntegerField()
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(upload_to="products", null=True, blank=True)
 
 # functionaloity of cart
 class Cart(models.Model):

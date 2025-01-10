@@ -9,4 +9,5 @@ python manage.py createsuperuser // create user for admin panel
 pip install djangorestframework
 pip install markdown       # Markdown support for the browsable API.
 pip install django-filter  # Filtering support
+python manage.py collectstatic  # for making collect static folder
 python manage.py startapp (app_name) # for create newapp
