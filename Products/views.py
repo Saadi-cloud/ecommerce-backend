@@ -75,6 +75,7 @@ def add_to_cart(request):
         'message': 'Product added to cart!',
         'cart_item': {
             'id': cart_item.id,
+            'image': cart_item.product.image.url,
             'product_name': cart_item.product.product_name,
             'price': cart_item.product.price,
             'quantity': cart_item.quantity,
@@ -89,6 +90,7 @@ def get_cart_items(request):
         {
             'id': item.id,
             'product_name': item.product.product_name,
+            'image': item.product.image.url,
             'price': item.product.price,
             'quantity': item.quantity,
             'total_price': item.quantity * item.product.price,
